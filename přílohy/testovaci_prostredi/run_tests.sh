@@ -1,0 +1,1 @@
+/Applications/FirefoxAurora.app/Contents/MacOS/firefox -new-tab http://localhost/bp-tests/runner.php -new-tab http://localhost/bp-tests/runner.php -new-tab http://localhost/bp-tests/runner.php -new-tab http://localhost/bp-tests/runner.php -new-tab http://localhost/bp-tests/runner.php

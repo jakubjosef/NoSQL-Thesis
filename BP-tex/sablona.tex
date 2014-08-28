@@ -1,0 +1,167 @@
+
+\chapter[Šablona pro závěrečné práce ]{Šablona závěrečné práce pro \LyX{} a~\LaTeX{} }
+
+Šablona%
+\footnote{Tato šablona (její zdrojové soubory) je ke stažení na \texttt{http://people.fsv.cvut.cz
+/www/vydra/files/diplomka-bakalarka-lyx-sablona.zip}. Další skvělé
+šablony pro závěrečné práce viz~\cite{Thesis-templates,Diplomka-v-LaTeXu,Jirkovy-stranky,diplPraceSLU,Vavreckova}. %
+} \texttt{bakalarka.lyx} je vytvořena v editoru \LyX{}%
+\footnote{Což je\emph{ frontend} \LaTeX{}u.%
+}, je určena pro editor \LyX{}, ale byla též vyexportována pro použití
+v jiných editorech pro \LaTeX{} jako \texttt{bakalarka.tex}. Od ostatních
+\emph{\LaTeX{}ových} šablon se odlišuje především tím, že se zaměřuje
+na kvalitu použitého písma. 
+
+Šablona je založena na výborné \LaTeX{}ové  třídě \emph{KOMA-Script
+report (scrrpt)}, vycházející z evropských (zvláště německých) typografických
+zvyklostí, které se od českých odlišují jen minimálně\emph{. }Byla
+by škoda neuměle zasahovat do typograficky dokonalého díla, a proto
+v základním nastavení třídy nebyly provedeny téměř žádné změny. Šablona
+zavádí kvalitní\emph{ česká} písma\emph{}%
+\footnote{Tím jsou míněna písma s kvalitní českou diakritikou, nikoliv českého
+původu. Většina použitých písem je polské provenience.\emph{ }%
+} a s nimi sladěné matematické symboly, pestřejší záhlaví stránek a
+pestřejší hlavičky kapitol. Podrobněji u jednotlivých balíčků (část~\ref{sec:Zm=00011Bna-vzhledu}).
+
+\begin{description}
+\item [{Důležité~upozornění:}] Šablona je určena pro \emph{oboustranné}
+vytištění!%
+\marginpar{\textbf{\Huge }%
+\ovalbox{\textbf{\Huge !}}%
+}
+\end{description}
+
+\section{Struktura šablony}
+
+Šablona je vytvořena tak, abyste se v ní při psaní rozsáhlé práce
+mohli pokud možno dobře orientovat. Každá jednotlivá kapitola je proto
+uložena ve zvláštním souboru pojmenovaném podle názvu kapitoly. Hlavní
+soubor, který vše zastřešuje a spojuje do jednoho celku je \texttt{bakalarka.lyx}.
+Jednotlivé kapitoly je možné editovat samostatně a z každé z nich
+je možné vytvořit pdf náhled (nelekněte se, že místo odkazů směřujících
+na jiné kapitoly budou otazníky). Celou práci zkompilujete vytvořením
+pdf ze souboru \texttt{bakalarka.lyx. }Další kapitoly lze přidat z
+hlavního menu \LyX{}u: \texttt{Vložit $\rightarrow$ Soubor $\rightarrow$
+Dokument potomka}.
+
+
+\section{Změna vzhledu \label{sec:Zm=00011Bna-vzhledu}}
+
+Tuto část doporučuji číst až po dopsání práce anebo ji raději nečíst
+vůbec. Dočtete se v ní pouze jak změnit celkový vzhled práce, tj.
+jak změnit písmo, záhlaví stránek a hlavičky kapitol. Pokud vám vzhled
+práce vyhovuje, tak jak je nastaven, nemusíte měnit ani nastavovat
+vůbec nic! Změna vzhledu se provádí v preambuli \LaTeX{}u pomocí tzv.
+balíčků (viz~\ref{sub:Zavedeni}), a je pro začátečníka poněkud nezvyklá
+.
+
+
+\subsection{Písma}
+
+Balíčky (z anglického packages) s písmy jsou pojmenovány podle typu
+základního písma, i když zavádí i písmo vedlejší. Vedlejší písmo je
+obvykle písmo bezpatkové (bezšerifové), které se většinou používá
+na nadpisy všech úrovní. Další vedlejší písmo je strojopis, který
+se používá při výpisech kódu programů, ke zvýraznění internetových
+adres, názvů počítačových souborů atp. Každý balíček též zavádí matematické
+symboly sladěné se základním písmem.
+
+\begin{description}
+\item [{bc-latinmodern}] -- standardní \LaTeX{}ová písma Latin Modern.
+Matematické symboly \`ala Latin Modern.
+\item [{bc-times}] -- písma z balíčku \TeX-Gyre. Základní Termes, vedlejší
+Heros, strojopis Cursor. Matematika \`ala times.
+\item [{bc-palatino}] -- písma z balíčku \TeX-Gyre. Základní: Pagella,
+vedlejší Heros, strojopis Cursor. Matematika: \`ala palatino
+\item [{bc-iwona}] -- základní i vedlejší písmo bezpatkové písmo Iwona,
+strojopis  Cursor. Matematika: \`ala Iwona.
+\item [{bc-helvetika}] -- základní i vedlejší písmo bezpatkové písmo \TeX-Gyre
+Heros, strojopis Cursor. Matematika: \`ala helvetika.
+\end{description}
+
+\subsection{Záhlaví stránek}
+
+\begin{description}
+\item [{bc-headings}] -- záhlaví základním písmem, bez linky.
+\item [{bc-fancyheaders}] -- záhlaví stránek z \LaTeX{}ového balíčku \emph{fancyhdr}
+-- pestré, kapitálky základního písma, s linkou.
+\end{description}
+
+\subsection{Hlavičky kapitol}
+
+\begin{description}
+\item [{bc-neueskapitel}] -- hlavičky \emph{Neues Kapitel}~\cite{NeuesKapitel}.
+\item [{bc-fancychap}] \textbf{-- }hlavičky kapitol z \LaTeX{}ového balíčku
+\emph{fncychap}%
+\footnote{Editací souboru \texttt{bc-fancychap.sty }lze vybrat ze\emph{ sedmi}
+různých  hlaviček kapitol. Některé hlavičky si mění písmo -- je třeba
+zkontrolovat!%
+}. 
+\end{description}
+
+\subsection{Zavedení balíčků pro změnu vzhledu\label{sub:Zavedeni}}
+
+Balíčky se zavádějí v preambuli \LaTeX u (v dokumentu \texttt{bakalarka.lyx}!)
+v hlavním menu \LyX{}u: \texttt{Dokument $\rightarrow$ Nastavení\ldots{}
+$\rightarrow$ Preabule LaTeXu}, v textovém poli napravo odstraníte
+znak \% před příkazem volajícím příslušný balíček. Tedy před \texttt{\textbackslash{}usepackage\{packages/bc-times\}},
+pokud chceme použít balíček bc-times (zavádí písma typu times + helvetika
++ curier) . Před ostatními příkazy musí znak \% zůstat, nebo ho tam
+doplňte:
+
+\begin{lyxcode}
+{\footnotesize \%<-{}-{}-{}-{}-{}-{}-{}-{}-{}-{}-{}-volání~balíčků-{}-{}-{}-{}-{}-{}-{}-{}-{}-{}-{}-{}-{}-{}-{}-{}-{}-{}-{}-{}->}{\footnotesize \par}
+
+{\footnotesize \%~(znak~\%~je~označení~komentáře:~co~je~za~ním,~není~aktivní}{\footnotesize \par}
+
+{\footnotesize \%<-{}-{}-{}-{}-{}-{}-{}-{}-{}-{}-{}-{}-písmo-{}-{}-{}-{}-{}-{}-{}-{}-{}-{}-{}-{}-{}-{}-{}-{}-{}-{}-{}-{}-{}-{}-{}-{}-{}-{}->~}{\footnotesize \par}
+
+{\footnotesize \%\textbackslash{}usepackage\{packages/bc-latinmodern\}\%~zavádí~písmo~~a~mat}{\footnotesize \par}
+
+{\footnotesize{}~\textbackslash{}usepackage\{packages/bc-times\}\%~zavádí~písma~times,~helve}{\footnotesize \par}
+
+{\footnotesize \%\textbackslash{}usepackage\{packages/bc-palatino\}\%~zavádí~písma~palatino,~}{\footnotesize \par}
+
+{\footnotesize \%\textbackslash{}usepackage\{packages/bc-iwona\}\%zavádí~písmo~~iwona}{\footnotesize \par}
+\end{lyxcode}
+Balíčky jsou definovány v~souborech s příponou \texttt{sty}, což
+jsou obyčejné textové soubory a lze je editovat%
+\footnote{Myslím, že pochopit, který příkaz co znamená, není tak těžké, takže
+lze snadno vytvořit ,,hybridní{}`` balíčky.%
+} (jsou uloženy ve složce \texttt{packages}).
+
+\begin{lyxcode}
+
+\end{lyxcode}
+
+\subsection{Jaký vzhled vybrat?}
+
+To nechám na vás. Nechcete-li riskovat, volte konzervativní vzhled:
+bc-times + bc-headings nebo bc-fancyheaders, hlavičky kapitol žádné
+(základní).
+
+
+\subsection*{Příklady}
+
+\begin{itemize}
+\item Zkompilujete-li tlačítkem \includegraphics{obrazky/pdf} \emph{celý
+tento dokument} (tj. originální soubor \texttt{bakalarka.lyx}), bude
+text vysázen písmem \TeX{}-Gyre Pagella, hlavičky písmem \TeX{}-Gyre
+Heros, záhlaví bude \emph{bc-fancyhdr }a\emph{ }hlavičky kapitol \emph{Fancychap}
+(Bjarne).
+\item Zkompilujete-li samostatně \emph{tuto }kapitolu (originální soubor
+\texttt{sablona.lyx}) bude text vysázen písmem \TeX{}-Gyre Thermes,
+hlavičky písmem \TeX{}-Gyre Heros, záhlaví bude \emph{fancyhdr. }Hlavička
+kapitoly je \emph{Neues Kapitel}.
+\item Zkompilujete-li samostatně\emph{ }kapitolu \emph{Úvod} (originální
+soubor \texttt{uvod.lyx}) budou text i hlavičky vysázeny písmem Iwona.\emph{
+}Hlavičky kapitol jsou \emph{základní}.
+\item Zkompilujete-li samostatně\emph{ }kapitolu \emph{Úvod do \LyX{}u}
+(originální soubor \texttt{uvod\_L}\-\texttt{yX.lyx}) budou text
+i hlavičky vysázeny písmem Latin Modern.\emph{ }Hlavičky kapitol jsou
+\emph{základní}.
+\item Zkompilujete-li samostatně\emph{ }kapitolu \emph{Závěr} (originální
+soubor \texttt{zaver.lyx}) budou text i hlavičky vysázeny písmem \TeX{}-Gyre
+Heros.\emph{ }Hlavička kapitoly je \emph{Fancychap} (Bjarne).
+\end{itemize}
+

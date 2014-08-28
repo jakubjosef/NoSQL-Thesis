@@ -1,0 +1,328 @@
+%% LyX 1.5.5 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[a4paper,czech,czech,openright,cleardoubleempty,BCOR10mm,DIV11]{scrreprt}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{varioref}
+\usepackage{wrapfig}
+\usepackage{fancybox}
+\usepackage{calc}
+\usepackage{framed}
+\usepackage{url}
+\usepackage{graphicx}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX coěmmands.
+\providecommand{\LyX}{L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
+\newcommand{\lyxline}[1][1pt]{%
+  \par\noindent%
+  \rule[.5ex]{\linewidth}{#1}\par}
+\newcommand{\noun}[1]{\textsc{#1}}
+%% Special footnote code from the package 'stblftnt.sty'
+%% Author: Robin Fairbairns -- Last revised Dec 13 1996
+\let\SF@@footnote\footnote
+\def\footnote{\ifx\protect\@typeset@protect
+    \expandafter\SF@@footnote
+  \else
+    \expandafter\SF@gobble@opt
+  \fi
+}
+
+\expandafter\def\csname SF@gobble@opt \endcsname{\@ifnextchar[%]
+  \SF@gobble@twobracket
+  \@gobble
+}
+\edef\SF@gobble@opt{\noexpand\protect
+  \expandafter\noexpand\csname SF@gobble@opt \endcsname}
+\def\SF@gobble@twobracket[#1]#2{}
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\newenvironment{lyxcode}
+{\begin{list}{}{
+\setlength{\rightmargin}{\leftmargin}
+\setlength{\listparindent}{0pt}% needed for AMS classes
+\raggedright
+\setlength{\itemsep}{0pt}
+\setlength{\parsep}{0pt}
+\normalfont\ttfamily}%
+ \item[]}
+{\end{list}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+%<-------------------------------společná nastavení------------------------------>
+\usepackage[czech]{babel}%počeštění názvů (Obsah, Kapitola, Literatura atp.)
+\usepackage[]{hyperref} %odkazy v  pdf jsou klikací s barevnými rámečky
+\usepackage[numbers,sort&compress]{natbib} %balíček pro citace literatury  
+\usepackage{hypernat}%interakce mezi hyperref a natbib
+\newcommand{\BibTeX}{{\sc Bib}\TeX}%BibTeX logo
+\hypersetup{   % Nastavení polí PDF dokumentu 
+pdftitle={NoSQL databáze},%   
+pdfauthor={Jakub Josef},%  
+pdfsubject={},%   
+pdfkeywords={BigData, MongoDB, NoSQL, databases}%                             
+}
+\usepackage{multicol}
+
+
+
+
+%<-----------------------------volání stylů----------------------------------------->
+% (znak % je označení komentáře: co je za ním, není aktivní)
+%<------------------------------------písmo----------------------------------------->
+%\usepackage{packages/bc-latinmodern}
+%\usepackage{packages/bc-times}
+\usepackage{packages/bc-palatino}
+%\usepackage{packages/bc-iwona}
+%\usepackage{packages/bc-helvetika}
+
+
+%<------------------------------záhlaví stránek------------------------------------>
+%\usepackage{packages/bc-headings}
+\usepackage{packages/bc-fancyhdr}
+
+%<------------------------------hlavičky kapitol------------------------------------>
+%\usepackage{packages/bc-neueskapitel}
+%\usepackage{packages/bc-fancychap}
+
+\makeatother
+
+\usepackage{babel}
+
+%java code block%
+
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+% syntax highlight pro jazyk Java %
+\lstset{,
+  language=SQL,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  inputencoding=utf8,
+    extendedchars=true,
+    literate=%
+    {á}{{\'a}}1
+    {č}{{\v{c}}}1
+    {ď}{{\v{d}}}1
+    {é}{{\'e}}1
+    {ě}{{\v{e}}}1
+    {í}{{\'i}}1
+    {ň}{{\v{n}}}1
+    {ó}{{\'o}}1
+    {ř}{{\v{r}}}1
+    {š}{{\v{s}}}1
+    {ť}{{\v{t}}}1
+    {ú}{{\'u}}1
+    {ů}{{\r{u}}}1
+    {ý}{{\'y}}1
+    {ž}{{\v{z}}}1
+    {Á}{{\'A}}1
+    {Č}{{\v{C}}}1
+    {Ď}{{\v{D}}}1
+    {É}{{\'E}}1
+    {Ě}{{\v{E}}}1
+    {Í}{{\'I}}1
+    {Ň}{{\v{N}}}1
+    {Ó}{{\'O}}1
+    {Ř}{{\v{R}}}1
+    {Š}{{\v{S}}}1
+    {Ť}{{\v{T}}}1
+    {Ú}{{\'U}}1
+    {Ů}{{\r{U}}}1
+    {Ý}{{\'Y}}1
+    {Ž}{{\v{Z}}}1,
+  basicstyle={\small\ttfamily},
+  xleftmargin=1cm,
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+% vlastni package
+\usepackage{placeins}
+\usepackage{multirow}
+% fonty popisku
+\usepackage[font=small,labelfont=bf]{caption}
+% radkovani 
+\renewcommand{\baselinestretch}{1.2}
+\renewcommand*{\lstlistingname}{Kód} %prejmenovani lstlisting
+\renewcommand*{\lstlistlistingname}{Seznam ukázek kódu}
+\begin{document}
+
+\cleardoublepage{}~\thispagestyle{empty}\begin{center}\pagenumbering{roman}\vspace{10mm}
+
+
+\textsf{\textsc{\noun{\LARGE Univerzita Hradec Králové}}}\\
+\vspace{0.5em}
+\textsc{\noun{\LARGE Fakulta informatiky a managementu}}\\
+\vspace*{1em}
+\textsf{\textsc{\noun{\Large katedra informatiky a kvantitativních metod }}}
+
+
+%%% Aby vložení loga  správně fungovalo, je třeba mít soubor uhk.png nahraný v adresáři logo,
+%%% tj. v adresáři, kde se nachází překládaný zdrojový soubor. 
+\vspace{4cm}
+
+\textsf{\huge BAKALÁŘSKÁ PRÁCE}{\huge \par}
+
+\vspace{15mm}
+
+
+\textsf{\LARGE NoSQL databáze}{\LARGE \par}
+
+\vspace{10mm}
+
+
+\end{center} 
+
+\vspace*{\fill}
+
+
+\vspace{10mm}
+
+
+\begin{description}
+\item [{{\large Autor:}}] \noindent \textsf{\large Jakub Josef}{\large \par}
+\item [{{\large Vedoucí~práce:}}] \noindent \textsf{\large doc. Ing. Filip Malý, Ph.D.}{\large \hfill{}}\textsf{\large Hradec Králové, 2014}{\large{}
+% doplňte rok vzniku vaší bakalářské práce
+}{\large \par}
+\end{description}
+
+\clearpage{}
+~\thispagestyle{empty}{\small ~\vfill{}
+}{\small \par}
+
+\noindent {\small \vfill{}
+ % nastavuje dynamické umístění následujícího textu do spodní části stránky
+~}{\small \par}
+
+\noindent {\small Prohlašuji, že jsem bakalářskou práci vypracoval samostatně a uvedl jsem všechny použité prameny a literaturu.}{\small \par}
+
+{\small \bigskip{}
+}\noindent {\small{} Ve Smiřicích dne \today\hspace{\fill}Jakub Josef}\\
+{\small{} % doplňte patřičné datum, jméno a příjmení
+}{\small \par}
+
+{\small %%%   Výtisk pak na tomto míste nezapomeňte PODEPSAT!
+%%%                                         *********
+}{\small \par}
+
+\clearpage{}
+~\thispagestyle{empty}{\small ~\vfill{}
+}{\small \par}
+
+\noindent {\small Děkuji doc. Ing. Filipu Malému, Ph.D. za odborné vedení bakalářské práce a poskytování rad. \newpage{}}{\small \par}
+\clearpage{}
+~\thispagestyle{empty}{\small ~\vfill{}
+}{\small \par}
+\noindent {\small \vfill{}
+ % nastavuje dynamické umístění následujícího textu do spodní části stránky
+~}{\small \par}
+\section*{Anotace}
+Tato práce se zabývá problematikou nerelačních databází, zvaných NoSQL databáze. Jedná se o nová databázová řešení, která se vzdávají některých vlastností tradičních SQL databází, jako jsou schémata nebo podpora transakcí. Místo toho nabízejí velmi vysokou rychlost zpracování a výborné možnosti škálování výkonu. Práce představí samotný pojem NoSQL a jeho hlavní zástupce, ale především si klade za cíl srovnat relační databázi MySQL s dokumentově orientovanou NoSQL databází MongoDB. Obě tyto databáze se totiž hodí pro nasazení ve webové aplikaci jako hlavní úložiště dat. Byly provedeny výkonnostní testy, které měly za úkol porovnat tyto databáze mezi sebou. Testy lze nalézt v praktické části. Závěrem práce jsou shrnuty výsledky měření a představeny další možnosti výzkumu v této oblasti.
+
+
+\section*{Annotation}
+Title: NoSQL databases
+\vspace{0.5cm}
+
+\noindent This bachelor thesis deals with new types of non-relational databases called NoSQL. This new database solutions are not support some traditional SQL features like schemas or transactions, but offer very high processing speed and great scalability. Thesis explains a whole term NoSQL with best knows databases of each type. But the main purpose is to compare relational database MySQL with document-oriented NoSQL database MongoDB, which can be used in the same place in web application, as a main data store. Results of performance testing of those databases, can be find in practical part. All results is summarized in conclusion. You can also find some good possibilities of next research in the last part.
+
+\noindent {\small ~\vfill{}
+}{\small \par}
+
+\cleardoublepage{}\thispagestyle{empty}{\small \tableofcontents{}% vkládá automaticky generovaný obsah dokumentu
+\cleardoublepage{}}{\small \par}
+
+\include{uvod}
+
+\include{sql_databaze}
+
+\include{nosql}
+
+\include{prakticka_cast}
+
+\include{zaver}
+
+\addcontentsline{toc}{chapter}{Literatura} 
+\begin{thebibliography}{10}
+\bibitem{cassandra} LAKSHMAN, Avinash; MALIK, Prashant. \emph{Cassandra: a decentralized structured storage system} ACM SIGOPS Operating Systems Review, 2010, 44.2: 35-40.
+\bibitem{redisBenchmark} Redis, \emph{Benchmarking Redis} {[}online] {[cit 19.6.2014]} Dostupné z WWW: \url{https://code.google.com/p/redis/wiki/Benchmarks}
+\bibitem{nosqlBenchmark} Moredevs. \emph{MySql vs MongoDB performance benchmark} {[}online] {[cit 15. Červenec 2014]} Dostupné z WWW: \url{http://www.moredevs.ro/mysql-vs-mongodb-performance-benchmark/}
+\bibitem{gunzl}GÜNZL, Richard. \emph{NoSQL databáze}. Praha, 2012. Bakalářská práce. Vysoká škola ekonomická v Praze.
+\bibitem{peteraMongo}PETERA, Martin. \emph{MongoDB}. Praha, 2013. Bakalářská práce. Vysoká škola ekonomická v Praze.
+\bibitem{strauchNosql} STRAUCH, C. \emph{NoSQL Databases}. Stuttgart 2011. Diplomová práce. Stuttgart Media University {[}online] {[cit 20. Červenec 2014 ]}. Dostupné z: \url{http://www.christof-strauch.de/nosqldbs.pdf}
+\bibitem{panykoNosql} PANYKO, Tomáš. \emph{NoSQL databáze}. České Budějovice 2013. Bakalářská práce. Jihočeská univerzita v Českých Budějovicích.
+\bibitem{coddSql}CODD, Edgar F. \emph{A relational model of data for large shared data banks}. Communications of the ACM, 1970, 13.6: 377-387.
+\bibitem{sqlDatabaze}SKŘIVAN, Jaromír. \emph{Databáze a jazyk SQL} {[}online] {[cit. 20. Srpen 2013]} Dostupné z WWW: \url{http://interval.cz/clanky/databaze-a-jazyk-sql/}
+\bibitem{nosqlDistilled} SADALAGE, Pramod J.; FOWLER, Martin. \emph{NoSQL distilled: a brief guide to the emerging world of polygnot persistence.} Pearson Education, 2012.
+\bibitem{mysqlDataTypes}Oracle Corporation. \emph{MySQL 5.0 Reference Manual, Chapter 11: Data Types} {[}online] {[cit. 29. Srpen 2013]} Dostupné z WWW: \url{http://dev.mysql.com/doc/refman/5.0/en/data-types.html}
+\bibitem{acid} CHAPPLE Mike, \emph{The ACID Model} {[}online] {[cit.2. Září 2013]} Dostupné z WWW: \url{http://databases.about.com/od/specificproducts/a/acid.htm}
+\bibitem{transactions} LEWIS, Philip M.; BERNSTEIN, Arthur J; KIFER, Michael. \emph{Databases and transaction processing: an application-oriented approach} Addison-Wesley 2002
+\bibitem{pesimistic_optimistic} JABR Mohammad. \emph{Differences between Pessimistic and Optimistic Locking} {[}online] {cit. 3. Září 2013} Dostupné z WWW: \url{http://mjabr.wordpress.com/2011/06/10/differences-between-pessimistic-and-optimistic-locking/}
+\bibitem{oracle_transactions} Oracle Corporation. \emph{Oracle Database Concepts 11g Release 1 (11.1)} {[}online] {[cit. 10. Září 2013]} Dostupné z WWW: \url{http://docs.oracle.com/cd/B28359_01/server.111/b28318/transact.htm}
+\bibitem{galeracluster} Codership Ltd. \emph{Galera cluster documentation} {[}online] {[cit 30.7.2014]} Dostupné z WWW: \url{http://galeracluster.com/documentation-webpages/}
+\bibitem{strozziNoSQL}STROZZI, C. \emph{A Relational Database Management System} {[}online] {[cit. 21. Srpen 2013]} Dostupné z WWW: \url{http://www.strozzi.it/cgi-bin/CSA/tw7/I/en_US/NoSQL/Home%20Page}
+\bibitem{augiNoSQL}AUGUSTÝN, Michal. \emph{Zamyšlení nad NoSQL. Augiho web} {[}online] {[cit 20. Srpen 2013]} Dostupné z WWW: \url{http://www.augi.cz/programovani/zamysleni-nad-nosql/}
+\bibitem{cattellStores}CATTELL, Rick. \emph{High Performance Scalable Data Stores.} {[}online] {[cit 20. Srpen 2013]} Dostupné z WWW: \url{http://cattell.net/datastores/Datastores.pdf}
+\bibitem{mongoConsist}10gen, inc. \emph{MongoDB - On distributed consistency}. MongoDB. {[}online] {[cit 28. Srpen 2013]} Dostupné z WWW: \url{http://blog.mongodb.org/post/498145601/on-distributed-consistency-part-2-some-eventual}
+\bibitem{gilbertCap} GILBERT, Seth.; LYNCH Nancy. \emph{Brewer’s Conjecture and the Feasibility of Consistent, Available, Partition-Tolerant Web Services} {[}online] {[cit 30. Srpen 2013]}Dostupné z WWW: \url{http://lpd.epfl.ch/sgilbert/pubs/BrewersConjecture-SigAct.pdf}
+\bibitem{cap} SIMON, Salomé. \emph{Brewer's CAP Theorem} {[}online] {[cit 30. Srpen 2013]} Dostupné z WWW: \url{https://www.cs.unibas.ch/fileadmin/Lectures/HS2012/CS341/workshops/reportsAndSlides/ReportSalomeSimon.pdf}
+\bibitem{nosqlSlides} RYCHLÝ, Marek; KOLÁŘ Dušan. \emph{NoSQL databáze - Přednáška pro PDB} 2013, Vysoké učení technické v Brně, Fakulta informačních systémů {[}online] {[cit 1. Srpen 2014]} Dostupné z WWW: \url{http://www.fit.vutbr.cz/~rychly/public/docs/slides-nosql-databases/slides-nosql-databases.print.pdf}
+\bibitem{beltrameKeyValue} BELTRAME, Carlo. \emph{Key-value stores} Algorithms for Database Systems Seminar, 2013 {[}online] {[cit 27. Srpen 2013]} Dostupné z WWW: \url{http://www.ifi.uzh.ch/dbtg/teaching/courses/SDBS/Beltrame.pdf}
+\bibitem{redisDocs} Redis \emph{Redis Documentation} {[}online] {[cit 27. Srpen 2013]} Dostupné z WWW: \url{http://redis.io/documentation}
+\bibitem{tolitStorelist}TOLITIUS, Anatoly. \emph{Key Value Store List} {[}online] 2009 {[cit 25. Srpen 2013]} Dostupné z WWW: \url{http://www.dotkam.com/2009/08/30/key-value-store-list/} 
+\bibitem{enginesRanking}Db engines. \emph{Ranking.} {[}online] {[cit 1. Srpen 2014]} Dostupné z WWW: \url{http://db-engines.com/en/ranking}
+\bibitem{mongoDocs} MongoDB, Inc. \emph{The MongoDB 2.6 Manual} {[}online] {[cit. 1. Srpen 2014]} Dostupné z WWW: \url{http://docs.mongodb.org/manual/}
+\bibitem{changBigtable}CHANG, F. et al. \emph{Bigtable: A distrubuted Storage System for Structured Data} {[}online] 2006. {[cit 27. Srpen 2013]} Dostupné z WWW: \url{http://static.googleusercontent.com/media/research.google.com/cs//archive/bigtable-osdi06.pdf}
+\bibitem{regnerVse}REGNER, Tomáš. \emph{Dokumentově orientované open source databázové systémy} Praha, Vysoká škola ekonomická v Praze, 2012.
+\bibitem{columnDB} ABADI, D.; BONCZ, S.; HARIZOPOULOS, S.; IDREOS S.; MADDEN S. \emph{The Design and Implementation of Modern Column\-Oriented Database Systems} 2013, Foundations and Trends in Databases 5, Dec 2013, 198-280
+\bibitem{graphDb}ROBINSON, Ian a kol.\emph{Graph Databases}. O'Reilly, 2013. ISBN 978-1449356262.
+\bibitem{neo4j}Neo Technology, Inc. \emph{Neo4j documentation} {[}online] {[cit 2. Říjen 2013]} Dostupné z WWW: \url{http://www.neo4j.org/learn/}
+\bibitem{cypher} Neo Technology, Inc. \emph{Cypher Query Language}. {[}online] {[cit 2. Říjen 
+2013]} Dostupné z WWW: \url{http://docs.neo4j.org/chunked/milestone/cypher-query-lang.html}
+\bibitem{neo4jLicence} Neo Technology, Inc. \emph{Neo4j manual: Licenses} {[}online] {[cit. 2. Říjen 2013]} Dostupné z WWW: \url{http://www.neo4j.org/learn/licensing}
+\bibitem{searching}CROFT, W. Bruce; METZLER, Donald; STROHMAN, Trevor. \emph{Search engines: Information retrieval in practice.} Reading: Addison-Wesley, 2010.
+\bibitem{grailsLucene} BRAMLEY, Robin. \emph{Using Lucene in Grails} {[}online] {[cit 3. Říjen 2013]} Dostupné z WWW: \url{http://java.dzone.com/articles/using-lucene-grails}
+\bibitem{mongoAdmin} MongoDB, Inc. \emph{HTTP Interfaces} {[}online] {[cit 5. Srpen 2014]} Dostupné z WWW: \url{http://docs.mongodb.org/ecosystem/tools/http-interfaces}
+\bibitem{neo4jAdmin} Neo4j. \emph{The Neo4j Manual - Chapter 27. Web Interface} {[}online] {[cit 5. Srpen 2014]} Dostupné z WWW: \url{http://docs.neo4j.org/chunked/milestone/tools-webadmin.html}
+\bibitem{rest}MASSE, Mark. \emph{REST API design rulebook.} O'Reilly Media, Inc., 2011.
+\bibitem{redisBF} Redis. \emph{Redis manual: AUTH password} {[}online] {[cit 5. Srpen 2014]} Dostupné z WWW: \url{http://redis.io/commands/AUTH}
+\bibitem{mitm} ORNAGHI A.; VALLERI M. \emph{Man in the middle attacks Demos} Blackhat Conference 2003 {[}online] {[cit 6. Srpen 2014]} Dostupné z WWW: \url{http://www.smarttech.ie/wp-content/uploads/2013/12/bh-us-03-ornaghi-valleri.pdf}
+\bibitem{mongoHacking} KIRKPATRICK, David.\emph{Mongodb - Security Weaknesses in a typical NoSQL database} {[}online] {[cit 5. Srpen 2014]} Dostupné z WWW: \url{http://blog.spiderlabs.com/2013/03/mongodb-security-weaknesses-in-a-typical-nosql-database.html}
+\bibitem{mongoMySQLMapChart} MongoDB, Inc. \emph{SQL to MongoDB Mapping Chart} {[}online] {[cit 10.Červenec 2014]} Dostupné z WWW: \url{http://docs.mongodb.org/manual/reference/sql-comparison/}
+\bibitem{phpMyAdmin} phpMyAdmin contributors \emph{Bringing MySQL to the web} {[}online] {[cit 21. Červenec 2014]} Dostupný z WWW: \url{http://www.phpmyadmin.net/home_page/about.php}
+\bibitem{payMysql}SCHWARTZ, Baron. \emph{When are you required to have a commercial MySQL license?} {[}online] {[cit 21. Červenec 2014]} Dostupné z WWW: \url{http://www.xaprb.com/blog/2009/02/17/when-are-you-required-to-have-a-commercial-mysql-license/}
+\bibitem{macDiskSpeed}TOKAR, Les \emph{2013 MacBook Air Disassembled and Benched – Samsung 256GB PCIe SSD Performs at 794MB/s} {[}online] {[cit 2. Srpen 2014]} Dostupné z WWW: \url{http://www.thessdreview.com/our-reviews/2013-macbook-air-disassembled-and-benched-samsung-256gb-pcie-ssd-performs-at-700mbs/}
+\bibitem{mongoCluster} MongoDB, Inc. \emph{Deploy a Sharded Cluster} {[}online] {[cit 15. Červenec 2014]} Dostupné z WWW: \url{http://docs.mongodb.org/manual/tutorial/deploy-shard-cluster/}
+\bibitem{nosqlIrena} HOLUBOVÁ, Irena. \emph{NoSQL databáze a Big Data management - Map/Reduce, HDFS} {[}online] {[ cit 15. Červenec 2014]} Dostupné z WWW: \url{http://www.ksi.mff.cuni.cz/~holubova/NDBI040/slajdy/lecture03_mapreduce.pdf}
+\bibitem{phpMongo} The PHP Group \emph{Vendor Specific Database Extenstions: MongoDB} {[}online] {[cit 3. Srpen 2014]} Dostupné z WWW: \url{http://php.net/manual/en/book.mongo.php}
+\bibitem{notOrm} VRÁNA, Jakub \emph{NotORM} {[}online] {[cit. 3. Srpen 2014]} Dostupné z WWW: \url{http://www.notorm.com/#api}
+\bibitem{mysqlUbuntu} Canonical Ltd. \emph{Ubuntu Server Guide: MySQL} {[}online] {[cit 4. Srpen 2014]} Dostupné z WWW: \url{https://help.ubuntu.com/12.04/serverguide/mysql.html}
+\bibitem{mongod} MongoDB, Inc. \emph{mongod} {[}online] {[cit 5. Srpen 2014]} Dostupné z WWW: \url{http://docs.mongodb.org/manual/reference/program/mongod/}
+\bibitem{fowlerpp} FOWLER, Martin. \emph{PolygnotPersistance} {[}online] {[cit 15. Srpen 2014]} Dostupné z WWW: \url{http://martinfowler.com/bliki/PolyglotPersistence.html}
+\end{thebibliography}
+
+
+
+\cleardoublepage{}
+
+\include{prilohy}
+\listoffigures
+\listoftables
+\lstlistoflistings
+\clearpage{}
+\end{document}
